@@ -17,14 +17,11 @@ def classification(X_in):
         import re
         import nltk
         from nltk.corpus import stopwords
-        from nltk.stem.porter import PorterStemmer
         corpus = []
         for i in range(0, 72):
             headline = re.sub('[^a-zA-Z]', ' ', dataset['headlines'][i])
             headline = headline.lower()
             headline = headline.split()
-
-              # ps = PorterStemmer()
 
             headline = [word for word in headline if not word
                         in set(stopwords.words('english'))]
@@ -54,8 +51,6 @@ def classification(X_in):
 
         print('the accuracy is:')
         print( accuracy_score(y_test,predicted))
-
-        X_in=input('enter the headline:')
 
         X_input = []
         X_input.append(X_in)
